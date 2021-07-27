@@ -4,6 +4,21 @@ import User from "../../core/entities/userEntity";
 import userRepository from "../../core/repositories/userRepository";
 
 export default class userAdapter implements userRepository {
+  async getUserById(id: string): Promise<User | null> {
+    try {
+      const collection = await this.getConnection();
+      const result = await collection.findOne({ _id: id });
+      if (!result) {
+        return null;
+      }
+
+      result.id = result.insertedId as unknown as string;
+      return result as User;
+    } catch (error) {
+      return null;
+    }
+  }
+
   async addUser(user: User): Promise<User | null> {
     try {
       const collection = await this.getConnection();

@@ -11,5 +11,6 @@ const tokenAdapter = new TokenAdapter();
 
 const register = registerUser(userAdapter, encryptAdapter, tokenAdapter);
 const login = loginUser(userAdapter, encryptAdapter, tokenAdapter);
-const middleware = applicationMiddleaware(tokenAdapter);
+const middleware = applicationMiddleaware(tokenAdapter, userAdapter);
+
 export { register as registerUser, login as loginUser, middleware };

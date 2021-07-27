@@ -1,16 +1,16 @@
-import { Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import { middleware } from "../core/interactors";
-import { Request } from "../core/entities/requestAuthorized";
+// import { Request } from "../core/entities/requestAuthorized";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
   const bearer = req.header("authorization");
   if (!bearer) {
     return res.status(400).json({ message: "No token" });
   }
-  const token = await middleware(bearer);
-  if (!token) {
+  const user = await middleware(bearer);
+  if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-  req.userId = token;
+  res.locals.user = user;
   return next();
 };

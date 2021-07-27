@@ -1,6 +1,8 @@
 import express from "express";
 import register from "./controllers/userControllers/register";
 import login from "./controllers/userControllers/login";
+import publish from "./controllers/publishControllers/publish";
+import middleware from "./controllers/middleware";
 
 const port = process.env.PORT || 3000;
 
@@ -10,6 +12,7 @@ app.use(express.json());
 
 app.post("/user/register", register);
 app.post("/user/login", login);
+app.post("/post", middleware, publish);
 
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);

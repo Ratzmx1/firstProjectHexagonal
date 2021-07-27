@@ -1,7 +1,12 @@
+import User from "../entities/userEntity";
 import TokenRepository from "../repositories/tokenRepository";
+import UserRepository from "../repositories/userRepository";
 
-export default (tokenRepository: TokenRepository) =>
-  async (bearer: string): Promise<string | null> => {
+export default (
+    tokenRepository: TokenRepository,
+    userRepository: UserRepository
+  ) =>
+  async (bearer: string): Promise<User | null> => {
     if (!bearer.toUpperCase().startsWith("BEARER ")) {
       return null;
     }
@@ -9,7 +14,11 @@ export default (tokenRepository: TokenRepository) =>
 
     try {
       const userId = await tokenRepository.validateToken(token);
-      return userId;
+      if (!userId) {
+        return null;
+      }
+      const user = await userRepository.getUserById(userId);
+      return user;
     } catch (error) {
       return null;
     }

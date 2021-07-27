@@ -4,4 +4,5 @@ export default interface UserI {
   password: string;
   bio?: string;
   age: number;
+  id?: string;
 }

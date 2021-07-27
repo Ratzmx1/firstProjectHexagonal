@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import User from "../../core/entities/userEntity";
-import { registerUser } from "../../core/interactors";
+import { registerUser } from "../../core/interactors/";
 
 export default async (req: Request, res: Response) => {
   const { userName, email, password, age, bio } = req.body;
@@ -11,8 +11,18 @@ export default async (req: Request, res: Response) => {
     age,
     bio: bio || undefined,
   };
+  try {
+    const registeredUser = await registerUser(user);
 
-  const registeredUser = await registerUser(user);
+    if (!registeredUser) {
+      return res.status(400).json({ message: "User already registered" });
+    }
 
-  return res.json({ user: registeredUser });
+    return res.json({ user: registeredUser });
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(500)
+      .json({ message: "Internal Server Error", error: err.message });
+  }
 };

@@ -4,16 +4,30 @@ import User from "../../core/entities/userEntity";
 import userRepository from "../../core/repositories/userRepository";
 
 export default class userAdapter implements userRepository {
-  async addUser(user: User) {
-    const collection = await this.getConnection();
-    const result = await collection.insertOne(user);
-    return { _id: result.insertedId, ...user };
+  async addUser(user: User): Promise<User | null> {
+    try {
+      const collection = await this.getConnection();
+      const result = await collection.insertOne(user);
+      user.id = result.insertedId as unknown as string;
+      return user;
+    } catch (error) {
+      return null;
+    }
   }
-  async getUser(email: string): Promise<User> {
-    const collection = await this.getConnection();
-    const user = (await collection.findOne({ email })) as User;
 
-    return user;
+  async getUserByEmail(email: string): Promise<User | null> {
+    try {
+      const collection = await this.getConnection();
+      const data = await collection.findOne({ email });
+      if (!data) {
+        return null;
+      }
+      const user = data as User;
+      user.id = data._id;
+      return user;
+    } catch (error) {
+      return null;
+    }
   }
 
   private getConnection = async () => {
@@ -24,5 +38,3 @@ export default class userAdapter implements userRepository {
     return db.collection("users");
   };
 }
-
-const getConnection = () => {};

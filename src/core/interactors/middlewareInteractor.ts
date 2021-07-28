@@ -11,15 +11,15 @@ export default (
       return null;
     }
     const token = bearer.split(" ")[1];
-
     try {
-      const userId = await tokenRepository.validateToken(token);
+      const userId = tokenRepository.validateToken(token);
       if (!userId) {
         return null;
       }
       const user = await userRepository.getUserById(userId);
+
       return user;
     } catch (error) {
-      return null;
+      throw new Error(`Middleware error: ${error.message}`);
     }
   };

@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 import User from "../../core/entities/userEntity";
 import userRepository from "../../core/repositories/userRepository";
@@ -7,15 +7,15 @@ export default class userAdapter implements userRepository {
   async getUserById(id: string): Promise<User | null> {
     try {
       const collection = await this.getConnection();
-      const result = await collection.findOne({ _id: id });
+      const result = await collection.findOne({ _id: new ObjectId(id) });
       if (!result) {
         return null;
       }
 
-      result.id = result.insertedId as unknown as string;
+      result.id = result._id as string;
       return result as User;
     } catch (error) {
-      return null;
+      throw new Error(`Database Error: ${error.message}`);
     }
   }
 
@@ -41,7 +41,7 @@ export default class userAdapter implements userRepository {
       user.id = data._id;
       return user;
     } catch (error) {
-      return null;
+      throw new Error(`Database Error: ${error.message}`);
     }
   }
 

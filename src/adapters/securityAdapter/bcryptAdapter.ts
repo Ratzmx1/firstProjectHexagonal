@@ -13,6 +13,10 @@ export default class encryptAdapter implements encryptRepository {
     password: string,
     originalPassword: string
   ): Promise<boolean> {
-    return await bcrypt.compare(password, originalPassword);
+    try {
+      return await bcrypt.compare(password, originalPassword);
+    } catch (error) {
+      throw new Error(`Encrypt database error: ${error.message}`);
+    }
   }
 }

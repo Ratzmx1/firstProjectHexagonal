@@ -13,20 +13,17 @@ export default (
     password: string
   ): Promise<{ user: User; token: string } | null> => {
     const user = await userRepository.getUserByEmail(email);
-    try {
-      if (
-        !user ||
-        !(await encrtptRepository.comparePassword(password, user.password))
-      ) {
-        return null;
-      }
 
-      const token = tokenRepository.generateToken(user.id || "");
-      if (!token) {
-        return null;
-      }
-      return { user, token: token as unknown as string };
-    } catch (error) {
+    if (
+      !user ||
+      !(await encrtptRepository.comparePassword(password, user.password))
+    ) {
       return null;
     }
+
+    const token = tokenRepository.generateToken(user.id || "");
+    if (!token) {
+      return null;
+    }
+    return { user, token: token as unknown as string };
   };

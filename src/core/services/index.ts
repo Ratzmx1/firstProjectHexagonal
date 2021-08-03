@@ -3,11 +3,11 @@ import PublishAdapter from "../../adapters/MongoAdapter/publishAdapter";
 import EncryptAdapter from "../../adapters/securityAdapter/bcryptAdapter";
 import TokenAdapter from "../../adapters/securityAdapter/jsonwebtokenAdapter";
 
-import registerUser from "./userInteractors/registerInteractor";
-import loginUser from "./userInteractors/loginInteractor";
-import applicationMiddleaware from "./middlewareInteractor";
-import createPublish from "./publishInteractors/publishInteractor";
-import likePublish from "./publishInteractors/likeInteractor";
+import registerUser from "./userServices/registerServices";
+import loginUser from "./userServices/loginServices";
+import applicationMiddleaware from "./middlewareServices";
+import createPublish from "./publishServices/publishServices";
+import likePublish from "./publishServices/likeServices";
 
 const userAdapter = new UserAdapter();
 const publishAdapter = new PublishAdapter();

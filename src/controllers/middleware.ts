@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { middleware } from "../core/interactors";
+import { middleware } from "../core/services";
 // import { Request } from "../core/entities/requestAuthorized";
 
 export default async (req: Request, res: Response, next: NextFunction) => {

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import User from "../../core/entities/userEntity";
-import { likePublish } from "../../core/interactors";
+import { likePublish } from "../../core/services";
 
 export default async (req: Request, res: Response) => {
   const id = req.params.id;

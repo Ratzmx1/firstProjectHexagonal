@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { loginUser } from "../../core/interactors";
+import { loginUser } from "../../core/services";
 
 export default async (req: Request, res: Response) => {
   const { email, password } = req.body;

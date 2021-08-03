@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb";
-import Publish from "../../core/entities/publishEntity";
-import PublishRepository from "../../core/repositories/publishRepository";
+import Publish from "../../domain/entities/publishEntity";
+import PublishRepository from "../../domain/repositories/publishRepository";
 
 export default class publishAdapter implements PublishRepository {
   async getArrayLike(publishId: string): Promise<ObjectId[] | null> {

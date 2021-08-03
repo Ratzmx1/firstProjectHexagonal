@@ -1,4 +1,4 @@
-import encryptRepository from "../../core/repositories/encryptRepository";
+import encryptRepository from "../../domain/repositories/encryptRepository";
 import bcrypt from "bcrypt";
 
 export default class encryptAdapter implements encryptRepository {

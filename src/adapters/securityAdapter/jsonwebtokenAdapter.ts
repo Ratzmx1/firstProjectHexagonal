@@ -1,4 +1,4 @@
-import tokenRepository from "../../core/repositories/tokenRepository";
+import tokenRepository from "../../domain/repositories/tokenRepository";
 import jwt from "jsonwebtoken";
 
 export default class encryptAdapter implements tokenRepository {

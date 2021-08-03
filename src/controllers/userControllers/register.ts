@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import User from "../../core/entities/userEntity";
-import { registerUser } from "../../core/services";
+import User from "../../domain/entities/userEntity";
+import { registerUser } from "../../domain/services";
 
 export default async (req: Request, res: Response) => {
   const { userName, email, password, age, bio } = req.body;

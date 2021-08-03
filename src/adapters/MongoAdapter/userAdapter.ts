@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
 
-import User from "../../core/entities/userEntity";
-import userRepository from "../../core/repositories/userRepository";
+import User from "../../domain/entities/userEntity";
+import userRepository from "../../domain/repositories/userRepository";
 
 export default class userAdapter implements userRepository {
   async getUserById(id: string): Promise<User | null> {

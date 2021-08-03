@@ -8,6 +8,7 @@ import loginUser from "./userServices/loginServices";
 import applicationMiddleaware from "./middlewareServices";
 import createPublish from "./publishServices/publishServices";
 import likePublish from "./publishServices/likeServices";
+import commentPublish from "./publishServices/commentService";
 
 const userAdapter = new UserAdapter();
 const publishAdapter = new PublishAdapter();
@@ -18,6 +19,8 @@ const loginInteractor = loginUser(userAdapter, encryptAdapter, tokenAdapter);
 const middlewareInteractor = applicationMiddleaware(tokenAdapter, userAdapter);
 const publishInteractor = createPublish(publishAdapter);
 const likeInteractor = likePublish(publishAdapter);
+const commentInteractor = commentPublish(publishAdapter);
+
 const registerInteractor = registerUser(
   userAdapter,
   encryptAdapter,
@@ -30,4 +33,5 @@ export {
   middlewareInteractor as middleware,
   publishInteractor as createPublish,
   likeInteractor as likePublish,
+  commentInteractor as commentPublish,
 };

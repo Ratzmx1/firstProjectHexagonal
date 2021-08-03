@@ -4,6 +4,7 @@ import login from "./application/userControllers/login";
 import publish from "./application/publishControllers/publish";
 import middleware from "./application/middleware";
 import like from "./application/publishControllers/like";
+import comment from "./application/publishControllers/comment";
 
 const port = process.env.PORT || 3000;
 
@@ -15,6 +16,7 @@ app.post("/user/register", register);
 app.post("/user/login", login);
 app.post("/post", middleware, publish);
 app.post("/post/:id/like", middleware, like);
+app.post("/post/:id/comment", middleware, comment);
 
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);

@@ -8,7 +8,7 @@ export default interface publishRepository {
     userId: string,
     username: string,
     comment: string
-  ): Promise<Publish>;
+  ): Promise<void>;
   getArrayLike(publishId: string): Promise<Array<ObjectId> | null>;
   likePublish(publishId: string, userId: string): Promise<Publish>;
 }

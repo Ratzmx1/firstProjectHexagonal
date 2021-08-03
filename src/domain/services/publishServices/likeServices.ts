@@ -2,7 +2,6 @@ import PublishRepository from "../../repositories/publishRepository";
 
 import Publish from "../../entities/publishEntity";
 import User from "../../entities/userEntity";
-import { ObjectId } from "mongodb";
 
 export default (publishRepository: PublishRepository) =>
   async (id: string, user: User): Promise<Publish | null> => {

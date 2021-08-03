@@ -46,8 +46,19 @@ export default class publishAdapter implements PublishRepository {
     userId: string,
     username: string,
     comment: string
-  ): Promise<Publish> {
-    throw new Error("Method not implemented.");
+  ): Promise<void> {
+    try {
+      const conn = await this.getConnection();
+      const coll = await this.getCollection(conn);
+      const comm = { userId, username, comment, createdAt: new Date() };
+      const data = await coll.updateOne(
+        { _id: new ObjectId(publishId) },
+        { $push: { comments: comm } }
+      );
+      conn.close();
+    } catch (error) {
+      throw new Error(`Database error: ${error.message}`);
+    }
   }
 
   async likePublish(publishId: string, userId: string): Promise<Publish> {

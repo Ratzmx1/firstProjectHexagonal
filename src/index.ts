@@ -1,9 +1,9 @@
 import express from "express";
-import register from "./controllers/userControllers/register";
-import login from "./controllers/userControllers/login";
-import publish from "./controllers/publishControllers/publish";
-import middleware from "./controllers/middleware";
-import like from "./controllers/publishControllers/like";
+import register from "./application/userControllers/register";
+import login from "./application/userControllers/login";
+import publish from "./application/publishControllers/publish";
+import middleware from "./application/middleware";
+import like from "./application/publishControllers/like";
 
 const port = process.env.PORT || 3000;
 

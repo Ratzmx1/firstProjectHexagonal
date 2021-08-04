@@ -9,6 +9,7 @@ import applicationMiddleaware from "./middlewareServices";
 import createPublish from "./publishServices/publishServices";
 import likePublish from "./publishServices/likeServices";
 import commentPublish from "./publishServices/commentService";
+import getAllPublish from "./publishServices/getAllService";
 
 const userAdapter = new UserAdapter();
 const publishAdapter = new PublishAdapter();
@@ -20,6 +21,7 @@ const middlewareInteractor = applicationMiddleaware(tokenAdapter, userAdapter);
 const publishInteractor = createPublish(publishAdapter);
 const likeInteractor = likePublish(publishAdapter);
 const commentInteractor = commentPublish(publishAdapter);
+const getAllInteractor = getAllPublish(publishAdapter);
 
 const registerInteractor = registerUser(
   userAdapter,
@@ -34,4 +36,5 @@ export {
   publishInteractor as createPublish,
   likeInteractor as likePublish,
   commentInteractor as commentPublish,
+  getAllInteractor as getAllPublish,
 };

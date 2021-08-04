@@ -1,3 +1,5 @@
+import comment from "./commentEntity";
+
 export default interface publishI {
   id?: string;
   userId: string;
@@ -7,10 +9,4 @@ export default interface publishI {
   commentCount?: number;
   likedUsers?: Array<string>;
   comments?: Array<comment>;
-}
-
-interface comment {
-  userId: string;
-  username: string;
-  comment: string;
 }

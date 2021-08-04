@@ -4,6 +4,7 @@ export default interface publishI {
   userName: string;
   publish: string;
   likes?: number;
+  commentCount?: number;
   likedUsers?: Array<string>;
   comments?: Array<comment>;
 }

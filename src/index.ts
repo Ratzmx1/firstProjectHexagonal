@@ -21,3 +21,8 @@ app.post("/post/:id/comment", middleware, comment);
 app.listen(port, () => {
   console.log(`Listen on port ${port}`);
 });
+
+// TODO: GET ALL PUBLISH WITH LIKECOUNT AND COMMENTCOUNT
+// TODO: GET COMMENTS
+// TODO: GET LIKES
+// TODO: GET USER PROFILE

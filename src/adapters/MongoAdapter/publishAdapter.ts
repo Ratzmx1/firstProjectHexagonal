@@ -53,7 +53,7 @@ export default class publishAdapter implements PublishRepository {
       const comm = { userId, username, comment, createdAt: new Date() };
       const data = await coll.updateOne(
         { _id: new ObjectId(publishId) },
-        { $push: { comments: comm } }
+        { $push: { comments: comm }, $inc: { commentCount: 1 } }
       );
       conn.close();
     } catch (error) {

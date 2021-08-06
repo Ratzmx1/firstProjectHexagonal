@@ -6,6 +6,7 @@ import middleware from "./application/middleware";
 import like from "./application/publishControllers/like";
 import comment from "./application/publishControllers/comment";
 import getAll from "./application/publishControllers/getAll";
+import getUser from "./application/userControllers/getUser";
 
 const port = process.env.PORT || 3000;
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.post("/user/register", register);
 app.post("/user/login", login);
+app.get("/user/:id", middleware, getUser);
 app.post("/post", middleware, publish);
 app.get("/post", middleware, getAll);
 app.post("/post/:id/like", middleware, like);
@@ -24,6 +26,6 @@ app.listen(port, () => {
   console.log(`Listen on port ${port}`);
 });
 
-// TODO: GET COMMENTS
-// TODO: GET LIKES
 // TODO: GET USER PROFILE
+// TODO: SET PROFILE DATA
+// TODO: SET PASSWORD

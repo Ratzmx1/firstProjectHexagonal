@@ -5,6 +5,7 @@ import TokenAdapter from "../../adapters/securityAdapter/jsonwebtokenAdapter";
 
 import registerUser from "./userServices/registerServices";
 import loginUser from "./userServices/loginServices";
+import getUser from "./userServices/getUserService";
 import applicationMiddleaware from "./middlewareServices";
 import createPublish from "./publishServices/publishServices";
 import likePublish from "./publishServices/likeServices";
@@ -16,6 +17,7 @@ const publishAdapter = new PublishAdapter();
 const encryptAdapter = new EncryptAdapter();
 const tokenAdapter = new TokenAdapter();
 
+const getUserInteractor = getUser(userAdapter);
 const loginInteractor = loginUser(userAdapter, encryptAdapter, tokenAdapter);
 const middlewareInteractor = applicationMiddleaware(tokenAdapter, userAdapter);
 const publishInteractor = createPublish(publishAdapter);
@@ -32,6 +34,7 @@ const registerInteractor = registerUser(
 export {
   registerInteractor as registerUser,
   loginInteractor as loginUser,
+  getUserInteractor as getUser,
   middlewareInteractor as middleware,
   publishInteractor as createPublish,
   likeInteractor as likePublish,

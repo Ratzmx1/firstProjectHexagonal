@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import User from "../../domain/entities/userEntity";
 import { getAllPublish } from "../../domain/services";
 
 export default async (req: Request, res: Response) => {

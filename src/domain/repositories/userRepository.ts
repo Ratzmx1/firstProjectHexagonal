@@ -10,4 +10,5 @@ export default interface userRepository {
     bio: string,
     username: string
   ): Promise<User>;
+  updatePassword(id: string, password: string): Promise<User>;
 }

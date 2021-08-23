@@ -1,5 +1,5 @@
-// import UserAdapter from "../../adapters/MongoAdapter/userAdapter";
-import UserAdapter from "../../infraestructure/MongooseAdapter/userAdapter";
+import UserAdapter from "../../infraestructure/MongoAdapter/userAdapter";
+// import UserAdapter from "../../infraestructure/MongooseAdapter/userAdapter";
 import PublishAdapter from "../../infraestructure/MongoAdapter/publishAdapter";
 import EncryptAdapter from "../../infraestructure/securityAdapter/bcryptAdapter";
 import TokenAdapter from "../../infraestructure/securityAdapter/jsonwebtokenAdapter";
@@ -13,6 +13,7 @@ import likePublish from "./publishServices/likeServices";
 import commentPublish from "./publishServices/commentService";
 import getAllPublish from "./publishServices/getAllService";
 import updateUser from "./userServices/updateUserService";
+import updatePassword from "./userServices/updatePasswordService";
 
 const userAdapter = new UserAdapter();
 const publishAdapter = new PublishAdapter();
@@ -21,6 +22,7 @@ const tokenAdapter = new TokenAdapter();
 
 const getUserInteractor = getUser(userAdapter);
 const updateUserInteractor = updateUser(userAdapter);
+const updatePasswordInteractor = updatePassword(userAdapter, encryptAdapter);
 const loginInteractor = loginUser(userAdapter, encryptAdapter, tokenAdapter);
 const middlewareInteractor = applicationMiddleaware(tokenAdapter, userAdapter);
 const publishInteractor = createPublish(publishAdapter);
@@ -44,4 +46,5 @@ export {
   likeInteractor as likePublish,
   commentInteractor as commentPublish,
   getAllInteractor as getAllPublish,
+  updatePasswordInteractor as updatePassword,
 };

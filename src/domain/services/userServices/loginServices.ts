@@ -25,5 +25,5 @@ export default (
     if (!token) {
       return null;
     }
-    return { user, token: token as unknown as string };
+    return { user, token: token as string };
   };

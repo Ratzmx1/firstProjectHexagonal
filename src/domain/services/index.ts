@@ -1,5 +1,7 @@
-import UserAdapter from "../../infraestructure/MongoAdapter/userAdapter";
+// import UserAdapter from "../../infraestructure/MongoAdapter/userAdapter";
 // import UserAdapter from "../../infraestructure/MongooseAdapter/userAdapter";
+import UserAdapter from "../../infraestructure/MysqlAdapter/UserAdapter";
+
 import PublishAdapter from "../../infraestructure/MongoAdapter/publishAdapter";
 import EncryptAdapter from "../../infraestructure/securityAdapter/bcryptAdapter";
 import TokenAdapter from "../../infraestructure/securityAdapter/jsonwebtokenAdapter";

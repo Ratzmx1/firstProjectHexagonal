@@ -21,7 +21,7 @@ export default (
     if (!registeredUser) {
       return null;
     }
-    const token = await tokenRepository.generateToken(
+    const token = tokenRepository.generateToken(
       registeredUser.id as unknown as string
     );
     return { user: registeredUser, token: token || "" };

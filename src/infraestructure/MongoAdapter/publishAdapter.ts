@@ -55,7 +55,7 @@ export default class publishAdapter implements PublishRepository {
     }
   }
 
-  async getArrayLike(publishId: string): Promise<ObjectId[] | null> {
+  async getArrayLike(publishId: string): Promise<string[] | null> {
     try {
       const conn = await this.getConnection();
       const coll = await this.getCollection(conn);
@@ -65,7 +65,7 @@ export default class publishAdapter implements PublishRepository {
         conn.close();
         return null;
       }
-      const data = doc.likedUsers as Array<ObjectId>;
+      const data = doc.likedUsers as Array<string>;
       conn.close();
       return data;
     } catch (error) {

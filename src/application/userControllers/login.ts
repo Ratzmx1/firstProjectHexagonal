@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { loginUser } from "../../domain/services";
+import { loginUser } from "../../infraestructure";
 
 export default async (req: Request, res: Response) => {
   const { email, password } = req.body;

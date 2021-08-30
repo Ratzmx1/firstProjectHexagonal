@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import User from "../../domain/entities/userEntity";
-import { commentPublish } from "../../domain/services";
+import { commentPublish } from "../../infraestructure";
 
 export default async (req: Request, res: Response) => {
   const { comment } = req.body;

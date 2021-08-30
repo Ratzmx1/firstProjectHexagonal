@@ -1,21 +1,21 @@
 // import UserAdapter from "../../infraestructure/MongoAdapter/userAdapter";
 // import UserAdapter from "../../infraestructure/MongooseAdapter/userAdapter";
-import UserAdapter from "../../infraestructure/MysqlAdapter/UserAdapter";
+import UserAdapter from "./MysqlAdapter/UserAdapter";
 
-import PublishAdapter from "../../infraestructure/MongoAdapter/publishAdapter";
-import EncryptAdapter from "../../infraestructure/securityAdapter/bcryptAdapter";
-import TokenAdapter from "../../infraestructure/securityAdapter/jsonwebtokenAdapter";
+import PublishAdapter from "./MongoAdapter/publishAdapter";
+import EncryptAdapter from "./securityAdapter/bcryptAdapter";
+import TokenAdapter from "./securityAdapter/jsonwebtokenAdapter";
 
-import registerUser from "./userServices/registerServices";
-import loginUser from "./userServices/loginServices";
-import getUser from "./userServices/getUserService";
-import applicationMiddleaware from "./middlewareServices";
-import createPublish from "./publishServices/publishServices";
-import likePublish from "./publishServices/likeServices";
-import commentPublish from "./publishServices/commentService";
-import getAllPublish from "./publishServices/getAllService";
-import updateUser from "./userServices/updateUserService";
-import updatePassword from "./userServices/updatePasswordService";
+import registerUser from "../domain/services/userServices/registerServices";
+import loginUser from "../domain/services/userServices/loginServices";
+import getUser from "../domain/services/userServices/getUserService";
+import applicationMiddleaware from "../domain/services/middlewareServices";
+import createPublish from "../domain/services/publishServices/publishServices";
+import likePublish from "../domain/services/publishServices/likeServices";
+import commentPublish from "../domain/services/publishServices/commentService";
+import getAllPublish from "../domain/services/publishServices/getAllService";
+import updateUser from "../domain/services/userServices/updateUserService";
+import updatePassword from "../domain/services/userServices/updatePasswordService";
 
 const userAdapter = new UserAdapter();
 const publishAdapter = new PublishAdapter();

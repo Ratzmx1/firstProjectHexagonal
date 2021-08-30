@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import User from "../../domain/entities/userEntity";
 
-import { updatePassword } from "../../domain/services";
+import { updatePassword } from "../../infraestructure";
 
 export default async (req: Request, res: Response) => {
   const user = res.locals.user as User;
@@ -9,7 +9,7 @@ export default async (req: Request, res: Response) => {
   try {
     const userUpadated = await updatePassword(user, password);
 
-    return res.json({});
+    return res.json({ user: userUpadated });
   } catch (err) {
     console.error(err);
     return res

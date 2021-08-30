@@ -15,5 +15,7 @@ export default (
       passwordEncoded
     );
 
+    userUpdated.password = "";
+
     return userUpdated;
   };

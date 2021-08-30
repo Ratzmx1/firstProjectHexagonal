@@ -10,7 +10,7 @@ export default (publishRepository: PublishRepository) =>
     if (!likesArray) {
       return null;
     }
-    if (likesArray.findIndex((elem) => elem.equals(user.id || "")) >= 0) {
+    if (likesArray.findIndex((elem) => elem === user.id) >= 0) {
       return null;
     }
 

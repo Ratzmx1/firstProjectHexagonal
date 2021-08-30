@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { updateUser } from "../../domain/services";
+import { updateUser } from "../../infraestructure";
 import User from "../../domain/entities/userEntity";
 
 export default async (req: Request, res: Response) => {

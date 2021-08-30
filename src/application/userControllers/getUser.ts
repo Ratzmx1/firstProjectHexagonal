@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUser } from "../../domain/services";
+import { getUser } from "../../infraestructure";
 
 export default async (req: Request, res: Response) => {
   const { id } = req.params;

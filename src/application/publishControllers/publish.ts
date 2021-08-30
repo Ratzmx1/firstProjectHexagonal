@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Publish from "../../domain/entities/publishEntity";
 import User from "../../domain/entities/userEntity";
-import { createPublish } from "../../domain/services";
+import { createPublish } from "../../infraestructure";
 
 export default async (req: Request, res: Response) => {
   const { publish } = req.body;

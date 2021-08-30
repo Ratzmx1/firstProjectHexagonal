@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getAllPublish } from "../../domain/services";
+import { getAllPublish } from "../../infraestructure";
 
 export default async (req: Request, res: Response) => {
   try {

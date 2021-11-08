@@ -1,8 +1,8 @@
-import UserRepository from "../../repositories/userRepository";
-import EncrtptRepository from "../../repositories/encryptRepository";
-import TokenRepository from "../../repositories/tokenRepository";
+import UserRepository from "../../domain/repositories/userRepository";
+import EncrtptRepository from "../../domain/repositories/encryptRepository";
+import TokenRepository from "../../domain/repositories/tokenRepository";
 
-import User from "../../entities/userEntity";
+import User from "../../domain/entities/userEntity";
 
 export default (
     userRepository: UserRepository,

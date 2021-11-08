@@ -1,7 +1,6 @@
-import PublishRepository from "../../repositories/publishRepository";
+import PublishRepository from "../../domain/repositories/publishRepository";
 
-import Publish from "../../entities/publishEntity";
-import User from "../../entities/userEntity";
+import User from "../../domain/entities/userEntity";
 
 export default (publishRepository: PublishRepository) =>
   async (id: string, comment: string, user: User): Promise<void | null> => {

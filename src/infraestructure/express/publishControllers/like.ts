@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import User from "../../domain/entities/userEntity";
-import { likePublish } from "../../infraestructure";
+import User from "../../../domain/entities/userEntity";
+import { likePublish } from "../..";
 
 export default async (req: Request, res: Response) => {
   const id = req.params.id;
@@ -11,7 +11,7 @@ export default async (req: Request, res: Response) => {
       return res.status(400).json({ message: "Publish already liked" });
     }
     return res.json({ data });
-  } catch (error) {
+  } catch (error: any) {
     return res
       .status(500)
       .json({ message: "Internal server error", error: error.message });

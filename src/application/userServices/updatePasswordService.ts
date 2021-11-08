@@ -1,7 +1,7 @@
-import UserRepository from "../../repositories/userRepository";
-import EncryptRepository from "../../repositories/encryptRepository";
+import UserRepository from "../../domain/repositories/userRepository";
+import EncryptRepository from "../../domain/repositories/encryptRepository";
 
-import User from "../../entities/userEntity";
+import User from "../../domain/entities/userEntity";
 
 export default (
     userRepository: UserRepository,

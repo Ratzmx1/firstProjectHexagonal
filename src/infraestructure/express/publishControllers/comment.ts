@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import User from "../../domain/entities/userEntity";
-import { commentPublish } from "../../infraestructure";
+import User from "../../../domain/entities/userEntity";
+import { commentPublish } from "../..";
 
 export default async (req: Request, res: Response) => {
   const { comment } = req.body;
@@ -9,7 +9,7 @@ export default async (req: Request, res: Response) => {
   try {
     await commentPublish(id, comment, user);
     return res.json({ message: "Comment published successfully" });
-  } catch (error) {
+  } catch (error: any) {
     return res
       .status(500)
       .json({ message: "Internal Server Error", error: error.message });

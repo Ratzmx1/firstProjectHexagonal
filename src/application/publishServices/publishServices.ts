@@ -1,6 +1,6 @@
-import PublishRepository from "../../repositories/publishRepository";
+import PublishRepository from "../../domain/repositories/publishRepository";
 
-import Publish from "../../entities/publishEntity";
+import Publish from "../../domain/entities/publishEntity";
 
 export default (publishRepository: PublishRepository) =>
   async (publish: Publish): Promise<Publish | null> => {

@@ -15,7 +15,7 @@ export default class encryptAdapter implements encryptRepository {
   ): Promise<boolean> {
     try {
       return await bcrypt.compare(password, originalPassword);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Encrypt database error: ${error.message}`);
     }
   }

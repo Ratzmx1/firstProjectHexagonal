@@ -1,14 +1,15 @@
 import express from "express";
-import register from "./application/userControllers/register";
-import login from "./application/userControllers/login";
-import publish from "./application/publishControllers/publish";
-import middleware from "./application/middleware";
-import like from "./application/publishControllers/like";
-import comment from "./application/publishControllers/comment";
-import getAll from "./application/publishControllers/getAll";
-import getUser from "./application/userControllers/getUser";
-import updateUser from "./application/userControllers/updateUser";
-import updatePassword from "./application/userControllers/updatePassword";
+
+import register from "./infraestructure/express/userControllers/register";
+import login from "./infraestructure/express/userControllers/login";
+import publish from "./infraestructure/express/publishControllers/publish";
+import middleware from "./infraestructure/express/middleware";
+import like from "./infraestructure/express/publishControllers/like";
+import comment from "./infraestructure/express/publishControllers/comment";
+import getAll from "./infraestructure/express/publishControllers/getAll";
+import getUser from "./infraestructure/express/userControllers/getUser";
+import updateUser from "./infraestructure/express/userControllers/updateUser";
+import updatePassword from "./infraestructure/express/userControllers/updatePassword";
 
 const port = process.env.PORT || 3000;
 

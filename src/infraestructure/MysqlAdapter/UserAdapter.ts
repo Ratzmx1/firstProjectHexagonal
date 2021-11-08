@@ -17,7 +17,7 @@ export default class UserAdapter implements userRepository {
       const _em = await getEntityManager();
       const userSaved = (await _em.save(userToSave)) || null;
       return userSaved || null;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -28,7 +28,7 @@ export default class UserAdapter implements userRepository {
       const data = await _em.findOne(UserEntity, { email });
 
       return data || null;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -38,7 +38,7 @@ export default class UserAdapter implements userRepository {
       const _em = await getEntityManager();
       const data = await _em.findOne(UserEntity, id);
       return data || null;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -59,7 +59,7 @@ export default class UserAdapter implements userRepository {
       );
       console.log(data.raw);
       throw new Error(`Database Error: ${data.raw}`);
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -73,7 +73,7 @@ export default class UserAdapter implements userRepository {
       const user = await _em.findOne(UserEntity, id);
 
       return user as User;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }

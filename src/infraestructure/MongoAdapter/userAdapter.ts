@@ -19,7 +19,7 @@ export default class userAdapter implements userRepository {
       connection.close();
 
       return user as User;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -43,7 +43,7 @@ export default class userAdapter implements userRepository {
       connection.close();
 
       return user as User;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -61,7 +61,7 @@ export default class userAdapter implements userRepository {
 
       result.id = result._id as string;
       return result as User;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -74,7 +74,7 @@ export default class userAdapter implements userRepository {
       user.id = result.insertedId as unknown as string;
       connection.close();
       return user;
-    } catch (error) {
+    } catch (error: any) {
       return null;
     }
   }
@@ -93,7 +93,7 @@ export default class userAdapter implements userRepository {
       connection.close();
 
       return user;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }

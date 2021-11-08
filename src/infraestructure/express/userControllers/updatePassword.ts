@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import User from "../../domain/entities/userEntity";
+import User from "../../../domain/entities/userEntity";
 
-import { updatePassword } from "../../infraestructure";
+import { updatePassword } from "../..";
 
 export default async (req: Request, res: Response) => {
   const user = res.locals.user as User;

@@ -26,7 +26,7 @@ export default class userAdapter implements userRepository {
       }
       await conn.disconnect();
       return newUser;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -41,7 +41,7 @@ export default class userAdapter implements userRepository {
       }
       await conn.disconnect();
       return user;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -56,7 +56,7 @@ export default class userAdapter implements userRepository {
       }
       await conn.disconnect();
       return user;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }
@@ -77,7 +77,7 @@ export default class userAdapter implements userRepository {
       await conn.disconnect();
 
       return user as unknown as UserI;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database Error: ${error.message}`);
     }
   }

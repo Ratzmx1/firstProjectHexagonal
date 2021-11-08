@@ -1,6 +1,6 @@
-import User from "../entities/userEntity";
-import TokenRepository from "../repositories/tokenRepository";
-import UserRepository from "../repositories/userRepository";
+import User from "../domain/entities/userEntity";
+import TokenRepository from "../domain/repositories/tokenRepository";
+import UserRepository from "../domain/repositories/userRepository";
 
 export default (
     tokenRepository: TokenRepository,
@@ -19,7 +19,7 @@ export default (
       const user = await userRepository.getUserById(userId);
 
       return user;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Middleware error: ${error.message}`);
     }
   };

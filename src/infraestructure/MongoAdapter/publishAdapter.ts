@@ -1,5 +1,4 @@
 import { MongoClient, ObjectId } from "mongodb";
-import commentEntity from "../../domain/entities/commentEntity";
 import Publish from "../../domain/entities/publishEntity";
 import userEntity from "../../domain/entities/userEntity";
 import PublishRepository from "../../domain/repositories/publishRepository";
@@ -17,7 +16,7 @@ export default class publishAdapter implements PublishRepository {
       conn.close();
 
       return docs as Array<userEntity>;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -33,7 +32,7 @@ export default class publishAdapter implements PublishRepository {
       });
       conn.close();
       return data;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -50,7 +49,7 @@ export default class publishAdapter implements PublishRepository {
       }
 
       return data as unknown as Publish;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -68,7 +67,7 @@ export default class publishAdapter implements PublishRepository {
       const data = doc.likedUsers as Array<string>;
       conn.close();
       return data;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -87,7 +86,7 @@ export default class publishAdapter implements PublishRepository {
       publish.id = insertedPublish.insertedId as unknown as string;
       conn.close();
       return publish;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -107,7 +106,7 @@ export default class publishAdapter implements PublishRepository {
         { $push: { comments: comm }, $inc: { commentCount: 1 } }
       );
       conn.close();
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -123,7 +122,7 @@ export default class publishAdapter implements PublishRepository {
       console.log(doc);
       conn.close();
       return doc as unknown as Publish;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Database error: ${error.message}`);
     }
   }

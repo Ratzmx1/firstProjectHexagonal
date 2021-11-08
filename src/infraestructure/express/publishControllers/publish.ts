@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import Publish from "../../domain/entities/publishEntity";
-import User from "../../domain/entities/userEntity";
-import { createPublish } from "../../infraestructure";
+import Publish from "../../../domain/entities/publishEntity";
+import User from "../../../domain/entities/userEntity";
+import { createPublish } from "../..";
 
 export default async (req: Request, res: Response) => {
   const { publish } = req.body;
@@ -23,7 +23,7 @@ export default async (req: Request, res: Response) => {
     }
 
     return res.status(201).json({ publish: resp });
-  } catch (error) {
+  } catch (error: any) {
     return res
       .status(500)
       .json({ message: "Internal Server Error", error: error.message });

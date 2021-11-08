@@ -12,7 +12,7 @@ export default class encryptAdapter implements tokenRepository {
       const tokenData = { userId };
       const token = jwt.sign(tokenData, this.secret, tokenConfiguration);
       return token;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
       throw new Error(`Generate token error: ${error.message}`);
     }
@@ -26,7 +26,7 @@ export default class encryptAdapter implements tokenRepository {
         exp: number;
       };
       return userId;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
       throw new Error(`Validate token error: ${error.message}`);
     }

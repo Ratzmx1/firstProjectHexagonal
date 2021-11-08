@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { middleware } from "../infraestructure";
-// import { Request } from "../core/entities/requestAuthorized";
+import { middleware } from "..";
 
 export default async (req: Request, res: Response, next: NextFunction) => {
   const bearer = req.header("authorization");
